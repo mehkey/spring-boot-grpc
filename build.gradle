@@ -1,0 +1,83 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.1'
+	id 'io.spring.dependency-management' version '1.1.0'
+	//id 'com.google.protobuf' version '0.8.10'
+	id "io.github.lognet.grpc-spring-boot" version '5.0.0'
+	id "com.google.protobuf" version "0.9.2"
+}
+
+group = 'com.mehkey'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	compileOnly 'org.projectlombok:lombok'
+	//compile 'io.github.lognet:grpc-spring-boot-starter:4.2.0'
+	//compile 'io.github.lognet:grpc-client-spring-boot-starter:4.2.0'
+
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+/*
+sourceSets {
+	main {
+		proto {
+			srcDir 'src/main/proto'
+		}
+		java {
+			srcDir 'src/main/protoGen'
+		}
+	}
+}
+
+protobuf {
+	protoc {
+		artifact = 'com.google.protobuf:protoc:3.5.1'
+	}
+
+	plugins {
+		grpc {
+			artifact = "io.grpc:protoc-gen-grpc-java:1.33.1"
+		}
+	}
+	generatedFilesBaseDir = "$projectDir/src/"
+
+	generateProtoTasks {
+		ofSourceSet('main').each { task ->
+			task.builtins {
+				java {
+					outputSubDir = 'protoGen'
+				}
+			}
+			task.plugins {
+				grpc {
+					outputSubDir = 'protoGen'
+				}
+			}
+		}
+	}
+}
+
+
+task cleanProtoGen {
+	doFirst {
+		delete("$projectDir/src/main/protoGen")
+	}
+}
+clean.dependsOn cleanProtoGen
+*/
+tasks.named('test') {
+	useJUnitPlatform()
+}
