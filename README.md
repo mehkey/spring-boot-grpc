@@ -1,3 +1,6 @@
+
+[![Java CI with Gradle](https://github.com/mehkey/spring-boot-grpc/actions/workflows/gradle.yml/badge.svg)](https://github.com/mehkey/spring-boot-grpc/actions/workflows/gradle.yml)
+
 # spring-boot-grpc
 
  A spring boot grpc demo project in Java
