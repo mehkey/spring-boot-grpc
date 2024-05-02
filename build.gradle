@@ -37,9 +37,9 @@ sourceSets {
 			srcDir 'src/main/proto'
 		}
 		java {
+		}
 			srcDir 'src/main/protoGen'
 		}
-	}
 }
 
 protobuf {
